@@ -14,7 +14,7 @@ export function Showcase() {
   return (
     <section className="showcase section-pad" aria-labelledby="showcase-title">
       <div className="section-top">
-        <span className="eyebrow">01 / THE CREATIVE EXPLORATION</span>
+        <span className="eyebrow">02 / THE ART OF PERSPECTIVE</span>
         <span className="eyebrow">ONE PRODUCT. DIFFERENT PERSPECTIVES.</span>
       </div>
       <div className="showcase-layout">
@@ -55,7 +55,7 @@ export function Showcase() {
         <div className={`showcase-art ${styles[active].class}`}>
           <div className="scene-grid" />
           <img
-            src="/art/hero.webp"
+            src="/art/photography/headphone-study.webp"
             alt="Original silver headphone concept in an adjustable studio environment"
             loading="lazy"
           />
@@ -98,7 +98,7 @@ export function Comparison() {
       <div>
         <div className="comparison-frame">
           <img
-            src="/art/hero.webp"
+            src="/art/photography/headphone-study.webp"
             alt="Refined silver headphone concept with clean studio treatment"
             loading="lazy"
           />
@@ -107,7 +107,7 @@ export function Comparison() {
             style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
           >
             <img
-              src="/art/hero.webp"
+              src="/art/photography/headphone-study.webp"
               alt="Same headphone concept with an illustrative flatter, darker treatment"
               loading="lazy"
             />
@@ -134,7 +134,7 @@ export function Comparison() {
           <output aria-live="off">
             {position}% / {100 - position}%
           </output>
-          <span>USE ← → KEYS TO ADJUST</span>
+          <span>USE LEFT / RIGHT KEYS</span>
         </div>
       </div>
     </section>

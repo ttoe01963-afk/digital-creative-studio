@@ -128,6 +128,16 @@ for (const width of [320, 375, 430, 768, 1280, 1440, 1920]) {
         ),
       ).toBeTruthy();
     }
+    // Scroll each image into view so lazy loading is exercised, then wait for decoding.
+    for (const image of await page.locator("img").all()) {
+      await image.scrollIntoViewIfNeeded();
+      await expect(image).toHaveJSProperty("complete", true);
+      await expect
+        .poll(() =>
+          image.evaluate((el) => (el as HTMLImageElement).naturalWidth),
+        )
+        .toBeGreaterThan(0);
+    }
     expect(
       await page
         .locator("img")
@@ -154,7 +164,8 @@ for (const width of [320, 375, 430, 768, 1280, 1440, 1920]) {
         page.getByRole("button", { name: "Open menu" }),
       ).toHaveAttribute("aria-expanded", "false");
     }
-    await page.goto("/");
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    await page.waitForTimeout(300);
     await page.screenshot({
       path: `test-results/home-${width}.png`,
       fullPage: width === 1440 || width === 375,
