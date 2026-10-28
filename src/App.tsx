@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  ArrowUp,
   ArrowDown,
   ArrowDownRight,
   ArrowUpRight,
@@ -67,104 +68,92 @@ export default function App() {
       <Navigation />
       <main id="main">
         <section id="home" className="hero">
-          <div className="hero-top">
-            <span className="eyebrow">
-              <span className="status-dot" />
-              PRODUCT IMAGERY. ART DIRECTION. MOTION.
+          <div className="hero-copy">
+            <span className="eyebrow hero-kicker">
+              <span className="status-dot" /> INDEPENDENT CREATIVE STUDIO
             </span>
-            <span className="hero-edition eyebrow">
-              A STUDY IN PERSPECTIVE / VOL. 01
-            </span>
-          </div>
-          <div className="hero-title">
-            <h1>
-              Good products.
-              <br />
-              Impossible <span>to ignore.</span>
-              <ArrowDownRight aria-hidden="true" />
-            </h1>
-          </div>
-          <div className="hero-bottom">
-            <div className="hero-description">
-              <p>
-                We turn everyday products into
+            <div className="hero-title">
+              <h1>
+                Products.
                 <br />
-                extraordinary visual experiences.
-              </p>
-              <span className="hero-subcopy">
-                Considered imagery for brands
-                <br />
-                with something worth showing.
-              </span>
-              <div className="hero-actions">
-                <a className="button button-dark" href="#work">
-                  Explore selected work
-                  <ArrowUpRight size={18} />
-                </a>
-                <a className="text-link" href="#contact">
-                  Start a project
-                  <ArrowUpRight size={17} />
-                </a>
-              </div>
+                <span>Reimagined.</span>
+              </h1>
             </div>
-            <div className="hero-image">
-              <img
-                src="/art/hero.webp"
-                alt="Original silver headphone concept floating above a brushed metal pedestal"
-                fetchPriority="high"
-                width="1536"
-                height="1024"
-              />
-              <div className="hero-image-top">
-                <span className="eyebrow">FORM / MATERIAL / PERSPECTIVE</span>
-                <span className="crosshair">+</span>
-              </div>
-              <span className="hero-image-bottom eyebrow">
-                001 — A DIFFERENT FREQUENCY / AI-ASSISTED CONCEPT
-              </span>
-              <span className="hero-image-label">
-                An independent
-                <br />
-                point of view.
-              </span>
+            <p className="hero-lead">
+              A different perspective.
+              <br />
+              An unmistakable presence.
+            </p>
+            <p className="hero-description">
+              Product imagery, art direction and motion.
+              <br />
+              Considered down to the last detail.
+              <br />
+              Created to make people look.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-light" href="#work">
+                Explore Our Work <ArrowUpRight size={20} />
+              </a>
+              <a className="text-link" href="#contact">
+                Start a Project <ArrowUpRight size={18} />
+              </a>
+            </div>
+            <div className="hero-copy-bottom">
+              <span className="eyebrow">FORM. LIGHT. FEELING.</span>
+              <ArrowDownRight size={38} strokeWidth={1} />
+            </div>
+          </div>
+          <div className="hero-image">
+            <img
+              src="/art/photography/hero-bag.webp"
+              srcSet="/art/photography/hero-bag-small.webp 768w, /art/photography/hero-bag.webp 1536w"
+              sizes="(max-width: 700px) 150vw, 90vw"
+              alt="Photorealistic charcoal leather handbag concept on a concrete monolith, lit by a silver studio highlight"
+              fetchPriority="high"
+              width="1536"
+              height="1024"
+            />
+            <div className="hero-image-top">
+              <span className="eyebrow">THE OBJECT STUDIES / 001</span>
+              <span className="crosshair">+</span>
+            </div>
+            <div className="hero-image-bottom">
+              <span>LEATHER / LIGHT / PERSPECTIVE</span>
+              <span>AI-ASSISTED STUDIO CONCEPT</span>
             </div>
           </div>
           <div className="hero-footnote">
-            <a href="#showcase-start">
+            <a href="#work">
               <ArrowDown size={14} />
-              SCROLL TO EXPLORE
+              DISCOVER A DIFFERENT PERSPECTIVE
             </a>
-            <span>CREATIVE THINKING. PRECISE EXECUTION.</span>
-            <span>IMAGINED WITH INTENTION.</span>
+            <span>PRODUCT IMAGERY · ART DIRECTION · MOTION</span>
           </div>
         </section>
         <div className="discipline-strip" id="showcase-start">
-          {[
-            "PRODUCT IMAGERY",
-            "ART DIRECTION",
-            "VISUAL STORYTELLING",
-            "MOTION & REELS",
-          ].map((t) => (
-            <span key={t}>
-              {t}
-              <Asterisk size={22} />
-            </span>
-          ))}
+          <span>
+            Good products deserve <em>extraordinary presence.</em>
+          </span>
+          <Asterisk size={36} strokeWidth={1} />
         </div>
-        <Showcase />
         <Portfolio
           filter={filter}
           setFilter={setFilter}
           onProject={(p) => openProject(p.id)}
         />
+        <Showcase />
         <Comparison />
         <Services
           onViewWork={(c) => {
             setFilter(c);
             window.location.hash = "work";
-            document
-              .getElementById("work")
-              ?.scrollIntoView({ behavior: "smooth" });
+            document.getElementById("work")?.scrollIntoView({
+              behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                .matches
+                ? "instant"
+                : "smooth",
+            });
           }}
         />
         <MotionSection onProject={(p) => openProject(p.id)} />
@@ -222,7 +211,9 @@ export default function App() {
             © {new Date().getFullYear()} {site.name}
           </span>
           <span>ALL PORTFOLIO WORK SHOWN IS CONCEPTUAL.</span>
-          <a href="#home">BACK TO TOP ↑</a>
+          <a href="#home">
+            BACK TO TOP <ArrowUp size={12} aria-hidden="true" />
+          </a>
         </div>
       </footer>
       {activeProject && (

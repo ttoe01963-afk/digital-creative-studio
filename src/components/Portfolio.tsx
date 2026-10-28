@@ -74,10 +74,7 @@ export function ProjectDialog({
           </button>
         </div>
         <div className="dialog-hero">
-          <img
-            src={project.image}
-            alt={`${project.title} — original ${project.category.toLowerCase()} composition`}
-          />
+          <img src={project.image} alt={project.imageAlt} />
           <span className="image-badge">
             INDEPENDENT CONCEPT / NOT CLIENT WORK
           </span>
@@ -202,19 +199,20 @@ export function Portfolio({
   return (
     <section id="work" className="portfolio section-pad">
       <div className="section-top">
-        <span className="eyebrow">02 / SELECTED EXPLORATIONS</span>
-        <span className="eyebrow">A PORTFOLIO OF POSSIBILITIES</span>
+        <span className="eyebrow">01 / SELECTED EXPLORATIONS</span>
+        <span className="eyebrow">THE OBJECT STUDIES — 10 CONCEPTS</span>
       </div>
       <div className="section-heading">
         <h2>
-          Good products.
+          Objects, with
           <br />
-          <span>A different perspective.</span>
+          <span>something to say.</span>
         </h2>
         <p>
-          Imagined brands. Real creative thinking.
-          <br />A selection of original studio concepts, from the first clean
-          image to the complete campaign.
+          A study in form, light and feeling.
+          <br />
+          Ten photographic concepts. Ten distinct points of view. One considered
+          approach to making products stand out.
         </p>
       </div>
       <div className="portfolio-controls">
@@ -226,7 +224,11 @@ export function Portfolio({
               onClick={() => setFilter(c)}
             >
               {c}
-              {filter === c && <span>↗</span>}
+              {filter === c && (
+                <span>
+                  <ArrowUpRight size={12} aria-hidden="true" />
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -246,10 +248,12 @@ export function Portfolio({
             <div className="project-image">
               <img
                 src={p.image}
-                alt={`${p.title} — ${p.category} concept`}
+                srcSet={`${p.image.replace(".webp", "-small.webp")} 480w, ${p.image} 764w`}
+                sizes="(max-width: 700px) 90vw, 55vw"
+                alt={p.imageAlt}
                 loading="lazy"
-                width="1200"
-                height="1000"
+                width="768"
+                height="512"
               />
               <span className="image-badge">STUDIO CONCEPT</span>
               <span className="project-open">

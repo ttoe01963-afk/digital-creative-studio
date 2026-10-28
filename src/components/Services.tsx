@@ -29,7 +29,7 @@ export function Services({
         <div className="service-visual">
           <img
             key={active}
-            src={`/art/${services[Math.max(active, 0)].image}.svg`}
+            src={`/art/photography/${services[Math.max(active, 0)].image}.webp`}
             alt={`${services[Math.max(active, 0)].title} — original studio concept preview`}
             loading="lazy"
           />
@@ -121,7 +121,9 @@ export function MotionSection({
             </span>
             <span className="motion-card-caption">
               {p.title}
-              <small>EXPLORE STORYBOARD ↗</small>
+              <small>
+                EXPLORE STORYBOARD <ArrowUpRight size={12} aria-hidden="true" />
+              </small>
             </span>
           </button>
         ))}
@@ -172,24 +174,33 @@ export function About() {
         </div>
       </section>
       <section id="about" className="about section-pad">
-        <div className="about-symbol" aria-hidden="true">
-          <div />
-          <div />
-          <div />
-        </div>
+        <figure className="about-image">
+          <img
+            src="/art/photography/studio.webp"
+            srcSet="/art/photography/studio-small.webp 480w, /art/photography/studio.webp 764w"
+            sizes="(max-width: 700px) 90vw, 45vw"
+            alt="Concept art-direction worktable with greyscale product contact sheets, metal material swatches and a camera lens"
+            loading="lazy"
+            width="768"
+            height="512"
+          />
+          <figcaption>
+            THE PRACTICE OF LOOKING CLOSER / STUDIO CONCEPT
+          </figcaption>
+        </figure>
         <div className="about-copy">
           <span className="eyebrow">
             06 / INDEPENDENT IN SPIRIT. PRECISE BY DESIGN.
           </span>
           <h2>
-            Good design
+            A sharper eye.
             <br />
-            makes you look.
+            A quieter confidence.
             <br />
             <span>
-              Great design
+              A different
               <br />
-              makes you feel.
+              point of view.
             </span>
           </h2>
           <p>

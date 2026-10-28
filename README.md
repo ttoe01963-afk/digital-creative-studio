@@ -2,6 +2,14 @@
 
 A responsive, silver-and-graphite creative portfolio built with React 19, TypeScript and Vite. Includes ten original demonstration projects, filterable work, deep-linkable project dialogs, a selectable lighting study, a mouse/touch/keyboard comparison tool, motion storyboards, service exploration and a validated project brief form.
 
+## Visual preview
+
+The homepage has been rebuilt around photographic product concepts, a graphite hero and an asymmetric editorial gallery. All ten portfolio covers are distinct.
+
+![Desktop homepage screenshot](docs/preview-desktop.webp)
+
+[View mobile screenshot](docs/preview-mobile.webp). These are rendered browser screenshots, not a deployed website.
+
 ## Run locally (Windows, macOS or Linux)
 
 Install Node.js 22 or 24 LTS, then open a terminal in this directory:
@@ -37,11 +45,15 @@ If configuring real inquiry collection, add a privacy notice appropriate to your
 
 `src/data/site.ts` contains project records (objectives, art direction, work, deliverables, tags and storyboard frames), services and public studio settings. Brand colors, typography, layouts and reduced-motion styles are in `src/styles.css`. Fonts are bundled locally; no font service is requested at runtime.
 
-All portfolio entries are clearly labeled **studio concepts**, not client work. FORME, ØRA and OBJECT are fictional labels within the illustrations; no business relationships, product efficacy or technical specifications are claimed.
+All portfolio entries are clearly labeled **studio concepts**, not client work. The photorealistic assets are AI-assisted original concepts, not photographs of supplied products or evidence of client commissions. No business relationships, performance results, efficacy claims or technical specifications are implied.
 
-- `public/art/hero.webp`: original AI-assisted headphone artwork created for this project, optimized from the source generation. Used in the hero, first portfolio concept and interactive studies.
-- `public/art/*.svg`: original local vector compositions created for this project: fragrance, catalog, speaker, campaign, skincare, launch and social studies. They require no external image hosts.
-- `public/art/og-cover.svg`: concept social cover. Replace with an absolute public URL to a production JPEG/PNG social cover in `index.html` for broad sharing-platform compatibility.
+- `public/art/photography/hero-bag.webp`: dedicated full-resolution leather campaign hero.
+- `public/art/photography/{leather,speaker,catalog,camera,fragrance,footwear,timepiece,travel,accessories,package}.webp`: ten distinct photographic concept compositions. The matching `-small.webp` assets are responsive derivatives. Source concepts were generated for this project as coordinated photographic contact sheets and extracted into individual local assets.
+- `public/art/photography/studio.webp`: art-direction worktable concept used in About.
+- `public/art/photography/headphone-study.webp`: the original photographic headphone study, retained only in the interactive lighting and explicitly conceptual comparison components.
+- `public/art/photography/social-cover.jpg`: JPEG social cover. Set its absolute public URL in `index.html` once you have a deployment domain.
+- The old vector product mockups and unused SVG social cover have been removed. The remaining favicon and inline logo are interface marks, not portfolio product imagery.
+- See `public/art/photography/ASSETS.md` for subjects, provenance and replacement notes.
 - Replace the ten concept artworks and their copy with your own authorized portfolio work when available. Update `image` and `gallery` in the data records. Current details display the main cover; add a gallery presentation if supplying additional detail images.
 - Replace the illustrative before/after pair in `Showcase.tsx` with an aligned genuine original and retouched pair before presenting an authentic retouch comparison. The current version deliberately labels its simulated tone treatment as conceptual.
 - Supply real video files through each project's optional `video` field. Project details render native controls with plays-inline playback, a poster, deferred video loading and a loading-error message. Current motion projects use clearly labeled storyboards; **no actual videos are supplied or claimed**. Add appropriate caption tracks if videos contain speech.
