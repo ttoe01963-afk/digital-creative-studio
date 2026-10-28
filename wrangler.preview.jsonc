@@ -1,0 +1,11 @@
+{
+  // Opt-in preview configuration. Select explicitly with --config.
+  // Cloudflare Workers Builds supplies the existing target Worker's name.
+  // Outside Workers Builds, pass --worker-name YOUR_EXISTING_WORKER_NAME.
+  // Preview-only runtime date supported by the Wrangler version in the build log.
+  "compatibility_date": "2026-10-23",
+  "assets": {
+    "directory": "./dist"
+  },
+  "previews": {}
+}
